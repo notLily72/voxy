@@ -49,8 +49,10 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     //TODO: this is to eventually not need sodium installed as atm its just used for parsing shaders
-    modRuntimeOnly "maven.modrinth:sodium:mc1.21-0.5.9"
-    modCompileOnly "maven.modrinth:sodium:mc1.21-0.5.9"
+    modCompileOnly files("sodium-fabric-1.21-0.6.0-alpha.2.jar")
+    modRuntimeOnly files("sodium-fabric-1.21-0.6.0-alpha.2.jar")
+    //modRuntimeOnly "maven.modrinth:sodium:mc1.21-0.5.9"
+    //modCompileOnly "maven.modrinth:sodium:mc1.21-0.5.9"
 
     //modRuntimeOnly "maven.modrinth:nvidium:0.2.6-beta"
     modCompileOnly "maven.modrinth:nvidium:0.2.8-beta"
