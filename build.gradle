@@ -195,7 +195,7 @@ dependencies {
     //compileOnly("drouarb:nvidium:0.4.1-beta4:1.21.6@jar")
 
     smartDependency("modmenu_version", true)
-    smartDependency("lithium_version", true)
+    smartDependency("lithium_version", false)
     smartDependency("iris_version")
     smartDependency("chunky_version")
     smartDependency("vivecraft_version")

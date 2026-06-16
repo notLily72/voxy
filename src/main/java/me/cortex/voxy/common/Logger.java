@@ -2,6 +2,7 @@ package me.cortex.voxy.common;
 
 import me.cortex.voxy.commonImpl.VoxyCommon;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.chat.ChatListener;
 import net.minecraft.network.chat.Component;
 import org.slf4j.LoggerFactory;
 
@@ -62,7 +63,8 @@ public class Logger {
         if (instance != null) {
             instance.executeIfPossible(() -> {
                 var player = Minecraft.getInstance().player;
-                if (player != null) instance.getChatListener().handleSystemMessage(Component.literal(msg), true);
+                ChatListener listener = new ChatListener(Minecraft.getInstance());
+                if (player != null) listener.handleSystemMessage(Component.literal(msg), true);
             });
         }
     }

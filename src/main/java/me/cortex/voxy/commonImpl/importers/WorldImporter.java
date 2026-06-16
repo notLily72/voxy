@@ -100,6 +100,12 @@ public class WorldImporter implements IDataImporter {
                 return false;
             }
 
+            //TODO: Look into why this is needed now
+            @Override
+            public void forEachInPalette(Consumer<Holder<Biome>> consumer) {
+
+            }
+
             @Override
             public void count(PalettedContainer.CountConsumer<Holder<Biome>> counter) {
 

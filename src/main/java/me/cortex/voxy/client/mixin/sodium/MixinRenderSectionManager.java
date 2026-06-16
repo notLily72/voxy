@@ -37,7 +37,7 @@ public class MixinRenderSectionManager {
 
     @Shadow @Final private ChunkBuilder builder;
 
-    @Inject(method = "<init>", at = @At("TAIL"))
+    /*@Inject(method = "<init>", at = @At("TAIL"))
     private void voxy$resetChunkTracker(ClientLevel level, int renderDistance, SortBehavior sortBehavior, CommandList commandList, CallbackInfo ci) {
         if (level.levelRenderer != null) {
             var system = ((IGetVoxyRenderSystem)(level.levelRenderer)).voxy$getRenderSystem();
@@ -46,7 +46,7 @@ public class MixinRenderSectionManager {
             }
         }
         this.bottomSectionY = this.level.getMinY()>>4;
-    }
+    }*/
 
     @Inject(method = "onChunkRemoved", at = @At("HEAD"))
     private void voxy$injectIngest(int x, int z, CallbackInfo ci) {
@@ -63,7 +63,7 @@ public class MixinRenderSectionManager {
     }
 
 
-    @Inject(method = "onChunkAdded", at = @At("HEAD"))
+    /*@Inject(method = "onChunkAdded", at = @At("HEAD"))
     private void voxy$ingestOnAdd(int x, int z, CallbackInfo ci) {
         if (this.level.levelRenderer != null && VoxyConfig.CONFIG.ingestEnabled) {
             var cccm = this.level.getChunkSource();
@@ -74,7 +74,7 @@ public class MixinRenderSectionManager {
                 }
             }
         }
-    }
+    }*/
 
     /*
     @Inject(method = "onChunkRemoved", at = @At("HEAD"))
@@ -91,7 +91,7 @@ public class MixinRenderSectionManager {
     @Unique private int cachedChunkStatus;
     @Unique private int bottomSectionY;
 
-    @Redirect(method = "updateSectionInfo", at = @At(value = "INVOKE", target = "Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;setInfo(Lnet/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo;)Z"))
+    /*@Redirect(method = "updateSectionInfo", at = @At(value = "INVOKE", target = "Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;setInfo(Lnet/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo;)Z"))
     private boolean voxy$updateOnUpload(RenderSection instance, BuiltSectionInfo info) {
         boolean wasBuilt = instance.getFlags()!=0;
         int flags = instance.getFlags();
@@ -157,5 +157,5 @@ public class MixinRenderSectionManager {
             system.chunkBoundRenderer.addSection(pos);
         }
         return true;
-    }
+    }*/
 }
